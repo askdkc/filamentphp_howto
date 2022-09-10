@@ -447,6 +447,6 @@ Postデータから編集をクリックし、表示された編集画面のTag�
 表示されるタグ追加ウィンドウから既存のデータがドロップダウンや検索機能による絞り込みで選べます
 ![4D1AD9C1-A8BA-4661-B518-D6B5D14636DD](https://user-images.githubusercontent.com/7894265/189489602-e9a95317-70b0-4fc6-a877-4402113d225d.png)
 
-より詳しい情報はオフィシャルドキュメントを読もう
+より詳しい情報はオフィシャルドキュメントを読もう👉 
 [Installation - Admin Panel - Filament](https://filamentphp.com/docs)
 
