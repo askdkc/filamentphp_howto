@@ -133,11 +133,12 @@ class Post extends Model
 {
     use HasFactory;
     protected $fillable = ['title', 'body'];  //追加
-	  //下記も追加
-	  public function tags() 
-	  {
-	      return $this->belongsToMany(Tag::class);
-	  }
+    
+    //下記も追加
+    public function tags() 
+    {
+        return $this->belongsToMany(Tag::class);
+    }
 }
 ------
 ```
@@ -168,7 +169,7 @@ class Tag extends Model
  Password:
  >  (管理者ユーザのパスワード入力)
 
-uccess! admin@localhost may now log in at http://filavel.test/admin/login.
+Success! admin@localhost may now log in at http://filavel.test/admin/login.
 
  Would you like to show some love by starring the repo? (yes/no) [yes]:
 → Filamentを気に入った時は yes と入力すると GitHub のリポに飛ぶので、スター押してね
@@ -197,63 +198,63 @@ PostResource.phpファイルを編集します
 app/Filament/Resources/PostResource.php
 ---before---
 public static function form(Form $form): Form
-    {
-        return $form
-            ->schema([
-                //
-            ]);
-    }
+{
+    return $form
+        ->schema([
+            //
+        ]);
+}
 
-    public static function table(Table $table): Table
-    {
-        return $table
-            ->columns([
-                //
-            ])
-            ->filters([
-                //
-            ])
-            ->actions([
-                Tables\Actions\EditAction::make(),
-            ])
-            ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
-            ]);
-    }
+public static function table(Table $table): Table
+{
+    return $table
+        ->columns([
+            //
+        ])
+        ->filters([
+            //
+        ])
+        ->actions([
+            Tables\Actions\EditAction::make(),
+        ])
+        ->bulkActions([
+            Tables\Actions\DeleteBulkAction::make(),
+        ]);
+}
 -----------
 ↓
 ---after---
 public static function form(Form $form): Form
-    {
-        return $form
-            ->schema([
-                // ここに編集したい項目を追加する
-                Forms\Components\TextInput::make('title')->required()->label('タイトル')
-                    ->hint("ブログのタイトル入力"),
-                Forms\Components\Textarea::make('body')->required()->label('本文')
-                    ->helperText('本文を入力します')
-                    ->columnSpan('full'),
-            ]);
-    }
+{
+    return $form
+        ->schema([
+            // ここに編集したい項目を追加する
+            Forms\Components\TextInput::make('title')->required()->label('タイトル')
+                ->hint("ブログのタイトル入力"),
+            Forms\Components\Textarea::make('body')->required()->label('本文')
+                ->helperText('本文を入力します')
+                ->columnSpan('full'),
+        ]);
+}
 
-    public static function table(Table $table): Table
-    {
-        return $table
-            ->columns([
-                // ここに表示したい項目を追加する
-                Tables\Columns\TextColumn::make('title')->label('タイトル'),
-                Tables\Columns\TextColumn::make('body')->label('本文'),
-            ])
-            ->filters([
-                //
-            ])
-            ->actions([
-                Tables\Actions\EditAction::make(),
-            ])
-            ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
-            ]);
-    }
+public static function table(Table $table): Table
+{
+    return $table
+        ->columns([
+            // ここに表示したい項目を追加する
+            Tables\Columns\TextColumn::make('title')->label('タイトル'),
+            Tables\Columns\TextColumn::make('body')->label('本文'),
+        ])
+        ->filters([
+            //
+        ])
+        ->actions([
+            Tables\Actions\EditAction::make(),
+        ])
+        ->bulkActions([
+            Tables\Actions\DeleteBulkAction::make(),
+        ]);
+}
 -----------
 ```
 
@@ -262,59 +263,59 @@ TagResource.phpファイルを編集します
 app/Filament/Resources/TagResource.php
 ---before---
 public static function form(Form $form): Form
-    {
-        return $form
-            ->schema([
-                //
-            ]);
-    }
+{
+    return $form
+        ->schema([
+            //
+        ]);
+}
 
-    public static function table(Table $table): Table
-    {
-        return $table
-            ->columns([
-                //
-            ])
-            ->filters([
-                //
-            ])
-            ->actions([
-                Tables\Actions\EditAction::make(),
-            ])
-            ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
-            ]);
-    }
+public static function table(Table $table): Table
+{
+    return $table
+        ->columns([
+            //
+        ])
+        ->filters([
+            //
+        ])
+        ->actions([
+            Tables\Actions\EditAction::make(),
+        ])
+        ->bulkActions([
+            Tables\Actions\DeleteBulkAction::make(),
+        ]);
+}
 -----------
 ↓
 ---after---
 public static function form(Form $form): Form
-    {
-        return $form
-            ->schema([
-                // ここに編集したい項目を追加する
-                Forms\Components\TextInput::make('name')->required()->label('タグ')
-                    ->hint("タグ名を入力"),
-            ]);
-    }
+{
+    return $form
+        ->schema([
+            // ここに編集したい項目を追加する
+            Forms\Components\TextInput::make('name')->required()->label('タグ')
+                ->hint("タグ名を入力"),
+        ]);
+}
 
-    public static function table(Table $table): Table
-    {
-        return $table
-            ->columns([
-                // ここに表示したい項目を追加する
-                Tables\Columns\TextColumn::make('name')->label('タグ'),
-            ])
-            ->filters([
-                //
-            ])
-            ->actions([
-                Tables\Actions\EditAction::make(),
-            ])
-            ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
-            ]);
-    }
+public static function table(Table $table): Table
+{
+    return $table
+        ->columns([
+            // ここに表示したい項目を追加する
+            Tables\Columns\TextColumn::make('name')->label('タグ'),
+        ])
+        ->filters([
+            //
+        ])
+        ->actions([
+            Tables\Actions\EditAction::make(),
+        ])
+        ->bulkActions([
+            Tables\Actions\DeleteBulkAction::make(),
+        ]);
+}
 -----------
 ```
 
@@ -370,37 +371,37 @@ config/app.php
 app/Filament/Resources/PostResource/RelationManagers/TagsRelationManager.php
 ---before---
 public static function table(Table $table): Table
-    {
-        return $table
-            ->columns([
-                Tables\Columns\TextColumn::make('name'),
-            ])
-            ->filters([
-                //
-            ])
-            ->headerActions([
-                Tables\Actions\CreateAction::make(),
-            ])
-            (省略)
-    }    
+{
+    return $table
+        ->columns([
+            Tables\Columns\TextColumn::make('name'),
+        ])
+        ->filters([
+            //
+        ])
+        ->headerActions([
+            Tables\Actions\CreateAction::make(),
+        ])
+        (省略)
+}    
 ------------
 ↓
 ---after---
 public static function table(Table $table): Table
-    {
-        return $table
-            ->columns([
-                Tables\Columns\TextColumn::make('name'),
-            ])
-            ->filters([
-                //
-            ])
-            ->headerActions([
-                Tables\Actions\CreateAction::make(),
-                Tables\Actions\AttachAction::make()->preloadRecordSelect()->label('タグ追加'), //追加
-            ])
-            (省略)
-    }    
+{
+    return $table
+        ->columns([
+            Tables\Columns\TextColumn::make('name'),
+        ])
+        ->filters([
+            //
+        ])
+        ->headerActions([
+            Tables\Actions\CreateAction::make(),
+            Tables\Actions\AttachAction::make()->preloadRecordSelect()->label('タグ追加'), //追加
+        ])
+        (省略)
+}    
 -----------
 ```
 
@@ -410,20 +411,20 @@ public static function table(Table $table): Table
 app/Filament/Resources/PostResource.ph
 ---before---
 public static function getRelations(): array
-    {
-        return [
-            //
-        ];
-    }
+{
+    return [
+        //
+    ];
+}
 ------------
 ↓
 ---after---
 public static function getRelations(): array
-    {
-        return [
-            PostResource\RelationManagers\TagsRelationManager::class, //追加
-        ];
-    }
+{
+    return [
+        PostResource\RelationManagers\TagsRelationManager::class, //追加
+    ];
+}
 ------------
 ```
 
