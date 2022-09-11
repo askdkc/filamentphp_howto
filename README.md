@@ -39,24 +39,24 @@ DB_CONNECTION=sqlite
 database/migrations/yyyy_mm_dd_hhmmss_create_posts_table.php
 --------
 public function up()
-    {
-        Schema::create('posts', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
-    }
+{
+    Schema::create('posts', function (Blueprint $table) {
+        $table->id();
+        $table->timestamps();
+    });
+}
 --------
 ↓
 --------
 public function up()
-    {
-        Schema::create('posts', function (Blueprint $table) {
-            $table->id();
-            $table->string('title');	//追加
-            $table->text('body');	//追加
-            $table->timestamps();
-        });
-    }
+{
+    Schema::create('posts', function (Blueprint $table) {
+        $table->id();
+        $table->string('title');	//追加
+        $table->text('body');	//追加
+        $table->timestamps();
+    });
+}
 --------
 ```
 
@@ -64,23 +64,23 @@ public function up()
 database/migrations/yyyy_mm_dd_hhmmss_create_tags_table.php
 --------
 public function up()
-    {
-        Schema::create('tags', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
-    }
+{
+    Schema::create('tags', function (Blueprint $table) {
+        $table->id();
+        $table->timestamps();
+    });
+}
 --------
 ↓
 --------
 public function up()
-    {
-        Schema::create('tags', function (Blueprint $table) {
-            $table->id();
-            $table->string('name')->unique();	//追加
-            $table->timestamps();
-        });
-    }
+{
+    Schema::create('tags', function (Blueprint $table) {
+        $table->id();
+        $table->string('name')->unique();	//追加
+        $table->timestamps();
+    });
+}
 --------
 
 ```
@@ -95,27 +95,27 @@ php artisan make:migration create_post_tag_table
 database/migrations/yyyy_mm_dd_hhmmss_create_post_tag_table.php
 --------
 public function up()
-    {
-        Schema::create('post_tag', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
-    }
+{
+    Schema::create('post_tag', function (Blueprint $table) {
+        $table->id();
+        $table->timestamps();
+    });
+}
 --------
 ↓
 --------
 public function up()
-    {
-        Schema::create('post_tag', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedInteger('post_id');
-            $table->unsignedInteger('tag_id');
-            $table->foreign('post_id')->references('id')->on('posts')->cascadeOnDelete();
-            $table->foreign('tag_id')->references('id')->on('tags')->cascadeOnDelete();
-            $table->unique(['post_id','tag_id']);
-            $table->timestamps();
-        });
-    }
+{
+    Schema::create('post_tag', function (Blueprint $table) {
+        $table->id();
+        $table->unsignedInteger('post_id');
+        $table->unsignedInteger('tag_id');
+        $table->foreign('post_id')->references('id')->on('posts')->cascadeOnDelete();
+        $table->foreign('tag_id')->references('id')->on('tags')->cascadeOnDelete();
+        $table->unique(['post_id','tag_id']);
+        $table->timestamps();
+    });
+}
 --------
 ```
 
@@ -343,7 +343,7 @@ Postsリソースの右側の”New Post”をクリックして新規データ�
 
 
 ## Filamentメニューの日本語化
-そのままだとFilamentの各種メニューは英語表記なので、configを修正しここを日本語化しましょう。
+そのままだとFilamentの各種メニューは英語表記なので、configを修正して日本語化しましょう
 ```vim
 config/app.php
 ---before---
