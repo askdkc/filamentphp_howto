@@ -320,11 +320,11 @@ public static function table(Table $table): Table
 ```
 
 ### 管理画面の変更確認
-管理画面にアクセスすると作成した各モデルリソースが表示されている
+管理画面にアクセスすると作成した各モデルリソースが表示されている(まだデータは無い)
 
 ![149305F4-7BA3-4255-89AD-A46B215669D5](https://user-images.githubusercontent.com/7894265/189489440-5203ec0a-e782-4e85-8d86-7e058c75b4da.png)
 
-
+こちらはTagモデル（まだデータは無い）
 ![A5428CCF-E8B2-4261-B7FE-3AE63BEAA388](https://user-images.githubusercontent.com/7894265/189489448-c1e4937b-592c-42d1-a97b-21d7f5890736.png)
 
 
@@ -335,7 +335,7 @@ Postsリソースの右側の”New Post”をクリックして新規データ�
 タイトルと本文を入力して”Create”をクリック
 ![9CFE0CF3-5736-45EF-9168-8BCBE4BA4EB5](https://user-images.githubusercontent.com/7894265/189489470-06531dde-4942-4a33-9baa-56711229a71e.png)
 
-右上に”Created”と表示されたら作成成功。左側のメニューのPostsをクリックして作成されたデータを見てみよう。
+右上に”Created”と表示されたら作成成功。左側のメニューのPostsをクリックして作成されたデータを見てみよう
 ![435AB861-0F33-4E78-AA68-13579A31524F](https://user-images.githubusercontent.com/7894265/189489480-55146922-1930-4e14-b528-9ea60db95f3b.png)
 
 作成したデータが一覧に表示される
@@ -447,6 +447,69 @@ Postデータから編集をクリックし、表示された編集画面のTag�
 
 表示されるタグ追加ウィンドウから既存のデータがドロップダウンや検索機能による絞り込みで選べます
 ![4D1AD9C1-A8BA-4661-B518-D6B5D14636DD](https://user-images.githubusercontent.com/7894265/189489602-e9a95317-70b0-4fc6-a877-4402113d225d.png)
+
+## リレーションシップの付け替えについて
+ちなみにこの画面の削除ボタンをクリックするとリレーションシップが外れるのではなく、sampleタグ自体が削除されてしまいます😱
+<img width="1020" alt="スクリーンショット 2022-09-12 15 41 23" src="https://user-images.githubusercontent.com/7894265/189590935-836cafa2-79e6-4f6a-88f4-323503b69412.png">
+
+
+これを防ぐには TagsRelationManager.php を以下のように変更します
+
+```vim
+app/Filament/Resources/PostResource/RelationManagers/TagsRelationManager.php
+---before---
+public static function table(Table $table): Table
+{
+    return $table
+        ->columns([
+            Tables\Columns\TextColumn::make('name'),
+        ])
+        ->filters([
+            //
+        ])
+        ->headerActions([
+            Tables\Actions\CreateAction::make(),
+            Tables\Actions\AttachAction::make()->preloadRecordSelect()->label('タグ追加'),
+        ])
+        ->actions([
+            Tables\Actions\EditAction::make(),
+            Tables\Actions\DeleteAction::make(),
+        ])
+        ->bulkActions([
+            Tables\Actions\DeleteBulkAction::make(),
+        ]);
+}
+------------
+↓
+---after---
+public static function table(Table $table): Table
+{
+    return $table
+        ->columns([
+            Tables\Columns\TextColumn::make('name'),
+        ])
+        ->filters([
+            //
+        ])
+        ->headerActions([
+            Tables\Actions\CreateAction::make(),
+            Tables\Actions\AttachAction::make()->preloadRecordSelect()->label('タグ追加'),
+        ])
+        ->actions([
+            Tables\Actions\EditAction::make(),
+            Tables\Actions\DetachAction::make(),  //ここをDeleteからDetachにしたよ
+        ])
+        ->bulkActions([
+            Tables\Actions\DeleteBulkAction::make(),
+        ]);
+}
+-----------
+```
+
+これで一安心😄
+
+<img width="1020" alt="スクリーンショット 2022-09-12 15 45 18" src="https://user-images.githubusercontent.com/7894265/189591027-5d71cf14-d680-4557-a6b8-7995555a1c42.png">
+
 
 より詳しい情報はオフィシャルドキュメントを読もう👉 
 [Installation - Admin Panel - Filament](https://filamentphp.com/docs)
