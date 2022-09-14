@@ -335,7 +335,7 @@ Postsリソースの右側の”New Post”をクリックして新規データ�
 タイトルと本文を入力して”Create”をクリック
 ![9CFE0CF3-5736-45EF-9168-8BCBE4BA4EB5](https://user-images.githubusercontent.com/7894265/189489470-06531dde-4942-4a33-9baa-56711229a71e.png)
 
-右上に”Created”と表示されたら作成成功。左側のメニューのPostsをクリックして作成されたデータを見てみよう
+右上に”Created”と表示されたら作成成功（保存時に一覧画面に戻りたい場合は[こちら](/sub/redirect.md)）。左側のメニューのPostsをクリックして作成されたデータを見てみよう
 ![435AB861-0F33-4E78-AA68-13579A31524F](https://user-images.githubusercontent.com/7894265/189489480-55146922-1930-4e14-b528-9ea60db95f3b.png)
 
 作成したデータが一覧に表示される
