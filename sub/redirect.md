@@ -6,7 +6,7 @@
 にファイルパスを置き換えたファイルを変更してください
 
 ## データ作成時のリダイレクト先変更方法
-```php
+```vim
 app/Filament/Resources/PostResource/Pages/CreatePost.php
 ---before---
 class CreatePost extends CreateRecord
@@ -30,7 +30,7 @@ class CreatePost extends CreateRecord
 ```
 
 ## データ更新時のリダイレクト先変更方法
-```php
+```vim
 app/Filament/Resources/PostResource/Pages/EditPost.php
 ---before---
 class EditPost extends EditRecord
