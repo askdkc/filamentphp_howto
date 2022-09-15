@@ -38,4 +38,5 @@ class PostResource extends Resource
 <img width="1353" alt="model_name_changed" src="https://user-images.githubusercontent.com/7894265/190346558-b364b436-96f1-48b5-bcec-12db780a3b71.png">
 
 あら便利💕
-
+<br><br>
+詳しくはオフィシャルドキュメントを参照👉 [Model Labels - Filament](https://filamentphp.com/docs/2.x/admin/resources/getting-started#model-labels)
