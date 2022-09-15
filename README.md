@@ -341,6 +341,8 @@ Postsリソースの右側の”New Post”をクリックして新規データ�
 作成したデータが一覧に表示される
 ![800B4CDA-56A0-4190-9E08-DAE863783CA7](https://user-images.githubusercontent.com/7894265/189489502-f62acb32-6d0c-46d7-b8de-e835bcd2ec95.png)
 
+ちなみにここでモデル名の箇所をLaravelのモデル名じゃなく、日本語で適切な名前を表示したい場合には[こちら](/sub/change-model-name.md)を参照
+
 
 ## Filamentメニューの日本語化
 そのままだとFilamentの各種メニューは英語表記なので、configを修正して日本語化しましょう
