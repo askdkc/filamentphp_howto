@@ -2,6 +2,7 @@
 初期の状態では左のメニューバーやモデル一覧画面のタイトルにはLaravelで作成したモデルのファイル名の表示がされてます。例：app/Models/Post.php → Post。これを「ブログ記事」のように変えたい場合の修正箇所は下記になります。
 
 ```vim
+app/Filament/Resources/PostResource.php
 ---before---
 class PostResource extends Resource
 {
