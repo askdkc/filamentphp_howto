@@ -32,3 +32,6 @@ public static function table(Table $table): Table
 <img width="1353" alt="after-search-feature" src="https://user-images.githubusercontent.com/7894265/190614940-06f6bc1a-f16b-4ad3-9a4d-6cf4363b24aa.png">
 
 
+あら便利💕
+<br><br>
+詳しくはオフィシャルドキュメントを参照👉 [Columns - Table Builder - Filament](https://filamentphp.com/docs/2.x/tables/columns#searching)
