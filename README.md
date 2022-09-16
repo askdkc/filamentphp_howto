@@ -338,7 +338,7 @@ Postsリソースの右側の”New Post”をクリックして新規データ�
 右上に”Created”と表示されたら作成成功（保存時に一覧画面に戻りたい場合は[こちら](/sub/redirect.md)）。左側のメニューのPostsをクリックして作成されたデータを見てみよう
 ![435AB861-0F33-4E78-AA68-13579A31524F](https://user-images.githubusercontent.com/7894265/189489480-55146922-1930-4e14-b528-9ea60db95f3b.png)
 
-作成したデータが一覧に表示される
+作成したデータが一覧に表示される（項目でソートしたい場合は[こちら](sub/add-sort.md)）
 ![800B4CDA-56A0-4190-9E08-DAE863783CA7](https://user-images.githubusercontent.com/7894265/189489502-f62acb32-6d0c-46d7-b8de-e835bcd2ec95.png)
 
 ちなみにここでモデル名の箇所をLaravelのモデル名じゃなく、日本語で適切な名前を表示したい場合には[こちら](/sub/change-model-name.md)を参照
