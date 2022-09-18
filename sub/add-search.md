@@ -51,9 +51,9 @@ public static function table(Table $table): Table
 {
     return $table
         ->columns([
-            Tables\Columns\TextColumn::make('title')->label('タイトル') //改行します
+            Tables\Columns\TextColumn::make('title')->label('タイトル') //見やすくするため改行追加
                 ->searchable()->sortable(), //ここにsortableを追加
-            Tables\Columns\TextColumn::make('body')->label('本文') //改行します
+            Tables\Columns\TextColumn::make('body')->label('本文') //見やすくするため改行追加
                 ->searchable()->sortable(), //ここにsortableを追加
         ])
 -----------
