@@ -19,7 +19,7 @@ public static function table(Table $table): Table
 {
     return $table
         ->columns([
-            Tables\Columns\TextColumn::make('title')->label('タイトル')-->sortable(), //ここにsortableを追加
+            Tables\Columns\TextColumn::make('title')->label('タイトル')->sortable(), //ここにsortableを追加
             Tables\Columns\TextColumn::make('body')->label('本文')->sortable(), //ここにsortableを追加
         ])
 -----------
@@ -35,6 +35,36 @@ public static function table(Table $table): Table
 ## タイトルでソート時
 <img width="1353" alt="title-sort" src="https://user-images.githubusercontent.com/7894265/190680977-17678bf5-07ef-43ef-9428-bc4809da067f.png">
 
+
+## 検索と併用可能
+ソート対象に加えて[こちらのページ](/sub/add-search.md)に記載した検索機能も下記の様にsearchableを付け加えるだけで検索対象にすることも可能
+
+```vim
+app/Filament/Resources/PostResource.php
+---before---
+public static function table(Table $table): Table
+{
+    return $table
+        ->columns([
+            Tables\Columns\TextColumn::make('title')->label('タイトル')->sortable(), //ここにsortableを追加
+            Tables\Columns\TextColumn::make('body')->label('本文')->sortable(), //ここにsortableを追加
+        ])
+------------
+↓
+---after---
+public static function table(Table $table): Table
+{
+    return $table
+        ->columns([
+            Tables\Columns\TextColumn::make('title')->label('タイトル') //改行追加
+                ->sortable()
+                ->searchable(), //ここにsearchableを追加
+            Tables\Columns\TextColumn::make('body')->label('本文') //改行追加
+                ->sortable()
+                ->searchable(), //ここにsearchableを追加
+        ])
+-----------
+```
 
 あら便利💕
 <br><br>
