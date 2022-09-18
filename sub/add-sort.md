@@ -56,12 +56,10 @@ public static function table(Table $table): Table
 {
     return $table
         ->columns([
-            Tables\Columns\TextColumn::make('title')->label('タイトル') //改行追加
-                ->sortable()
-                ->searchable(), //ここにsearchableを追加
-            Tables\Columns\TextColumn::make('body')->label('本文') //改行追加
-                ->sortable()
-                ->searchable(), //ここにsearchableを追加
+            Tables\Columns\TextColumn::make('title')->label('タイトル') //見やすくするため改行追加
+                ->sortable()->searchable(), //ここにsearchableを追加
+            Tables\Columns\TextColumn::make('body')->label('本文') //見やすくするため改行追加
+                ->sortable()->searchable(), //ここにsearchableを追加
         ])
 -----------
 ```
