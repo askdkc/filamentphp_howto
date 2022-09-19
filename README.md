@@ -513,6 +513,11 @@ public static function table(Table $table): Table
 <img width="1020" alt="スクリーンショット 2022-09-12 15 45 18" src="https://user-images.githubusercontent.com/7894265/189591027-5d71cf14-d680-4557-a6b8-7995555a1c42.png">
 
 
+## Userモデルの管理画面
+
+ユーザモデルは新規登録時のメールアドレスのユニーク制限やパスワードのハッシュ化等、色々と考えるべきことが多いので、[こちらの別枠ドキュメント](/sub/user-resource-sample.md)を参考願います
+
+## 追加情報
 より詳しい情報はオフィシャルドキュメントを読もう👉 
 [Installation - Admin Panel - Filament](https://filamentphp.com/docs)
 
