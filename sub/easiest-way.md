@@ -52,7 +52,7 @@ php artisan make:filament-resource User --generate
 Editをクリック後の画面
 <img width="1332" alt="ezuser2" src="https://user-images.githubusercontent.com/7894265/191151635-a3eaecc2-d396-496f-a8a7-a570c663269b.png">
 
-上記のまま"Save Change"をクリックするとPasswordが必須項目と警告が出る（正しくないというか、好ましくない動作）
+上記のまま"Save Changes"をクリックするとPasswordが必須項目と警告が出る（正しくないというか、好ましくない動作）
 <img width="1332" alt="ezuser3" src="https://user-images.githubusercontent.com/7894265/191151643-d1d2f949-5be8-4d70-8b8c-9113b7377715.png">
 
 **Userモデルの場合**にも書きましたが、対処方法については[こちらの説明](/sub/user-resource-sample.md)を参照してください
