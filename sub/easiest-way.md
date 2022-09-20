@@ -33,7 +33,8 @@ New Post(作成)をクリックすると次のような新規データ作成画�
 保存してPostデータ一覧に戻るとデータが追加されています
 <img width="1332" alt="ez3" src="https://user-images.githubusercontent.com/7894265/191151597-153c92d4-c4e0-437a-860b-1afb29c648ba.png">
 
-何これめっちゃ楽🤯💕
+何これめっちゃ楽🤯💕<br><br>
+なお、自動生成されたファイルは`app/Filament/Resources/`配下に保存されているので、更にカスタマイズが必要な場合にはそれらのファイルを弄ることで好き勝手に出来ます👍
 
 ## Userモデルの場合
 
