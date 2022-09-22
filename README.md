@@ -188,6 +188,12 @@ Success! admin@localhost may now log in at http://filavel.test/admin/login.
 
 ## Filament用管理リソースを作成する
 Filamentの管理画面でモデルのデータが扱えるようにリソースを作成します。
+
+> **ちなみに**  
+> 基本を飛ばして自動生成機能で楽したい人は[こちらをご確認ください](/sub/easiest-way.md)
+
+リソース作成の基本を見たい人は、このまま👇の手順を進めてください
+
 ```sh
 % php artisan make:filament-resource Post
 % php artisan make:filament-resource Tag
@@ -318,8 +324,6 @@ public static function table(Table $table): Table
 }
 -----------
 ```
-
-なお、上記はお勉強のための手動でリソースを作成する方法です。Filamentではリソースの自動生成機能も用意されております。[詳しくはこちらをご確認ください](/sub/easiest-way.md)
 
 
 ### 管理画面の変更確認
