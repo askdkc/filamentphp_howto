@@ -370,7 +370,7 @@ config/app.php
 作成ボタンをクリック後も各種ボタンやラベルが日本語表記になります
 ![470FAB7A-C36C-4158-AE78-A603B63ED084](https://user-images.githubusercontent.com/7894265/189489531-5ab48d33-a783-40fd-bd1d-33e1a9d67a77.png)
 
->**ちなみに自分の方でFilamentのリリース[v2.15.29の#3716、#3717、#3718](https://github.com/filamentphp/filament/releases/tag/v2.15.29)のPRとリリース[v2.16.13の#4152、#4153、#4154](https://github.com/filamentphp/filament/releases/tag/v2.16.13)のPRで日本語化に貢献してます😏**
+>**ちなみに自分の方でFilamentのリリース[v2.15.29の#3716、#3717、#3718](https://github.com/filamentphp/filament/releases/tag/v2.15.29)のPRとリリース[v2.16.13の#4152、#4153、#4154](https://github.com/filamentphp/filament/releases/tag/v2.16.13)のPR、[v2.16.17の#4202、#4203](https://github.com/filamentphp/filament/releases/tag/v2.16.17)で日本語化に貢献してます😏**
 
 ## Filamentリレーションリソースの追加
 ```sh
