@@ -530,3 +530,5 @@ public static function table(Table $table): Table
 より詳しい情報はオフィシャルドキュメントを読もう👉 
 [Installation - Admin Panel - Filament](https://filamentphp.com/docs)
 
+
+![visitors](https://visitor-badge.laobi.icu/badge?page_id=askdkc.filament-howto.visitor-badge)
