@@ -526,6 +526,10 @@ public static function table(Table $table): Table
 
 ユーザモデルは新規登録時のメールアドレスのユニーク制限やパスワードのハッシュ化等、色々と考えるべきことが多いので、[こちらの別枠ドキュメント](/sub/user-resource-sample.md)を参考願います
 
+## カスタムページの追加
+
+Filamentではリソースコンポーネントだけではなく、個別のカスタムページを作成して追加することも出来ます。詳しくは[こちらをご覧ください](/sub/add-custom-page.md)を参照
+
 ## 追加情報
 より詳しい情報はオフィシャルドキュメントを読もう👉 
 [Installation - Admin Panel - Filament](https://filamentphp.com/docs)
