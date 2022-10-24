@@ -528,7 +528,7 @@ public static function table(Table $table): Table
 
 ## カスタムページの追加
 
-Filamentではリソースコンポーネントだけではなく、個別のカスタムページを作成して追加することも出来ます。詳しくは[こちらをご覧ください](/sub/add-custom-page.md)を参照
+Filamentではリソースコンポーネントだけではなく、個別のカスタムページを作成して追加することも出来ます。詳しくは[こちらをご覧ください](/sub/add-custom-page.md)
 
 ## 追加情報
 より詳しい情報はオフィシャルドキュメントを読もう👉 
