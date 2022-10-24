@@ -105,7 +105,7 @@ php artisan vendor:publish --tag=livewire-csv-views
 
 ```
 
-`resources/views/vendor/livewire-csv/livewire/tailwindcss/csv-importer.blade.php` を開いて編集します
+続いて `resources/views/vendor/livewire-csv/livewire/tailwindcss/csv-importer.blade.php` を開いて編集します
 
 ```vim
 Filamentのカラーテーマはカスタムカラーを使っているので、そちらに合わせます(indigo→primary)
@@ -118,3 +118,50 @@ Filamentのカラーテーマはカスタムカラーを使っているので、
 <button type="submit" class="ml-4 ...(中略)... bg-primary-600 （後略） }}>{{ __('Import') }}</button>
 -----------
 ```
+
+再度ダッシュボードからImportsのページを開き、データインポートをクリックすると下記のようにボタンの色が変わっています
+<img width="1449" alt="image" src="https://user-images.githubusercontent.com/7894265/197443383-8bba7a3f-d7ee-4bad-aa81-9a19a7e8d6d6.png">
+
+
+### データインポートの準備
+データインポート用のコンポーネントはユーザモデルにCSVインポート機能を追加する必要があります
+`app/Models/User.php` を編集して必要な機能をモデルに付与します
+
+```vim
+app/Models/User.php
+
+---before---
+（略）
+use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
+
+class User extends Authenticatable
+{
+    use HasApiTokens, HasFactory, Notifiable;
+    
+（略）
+------------
+↓
+---after---
+（略）
+use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
+use Askdkc\LivewireCsv\Concerns\HasCsvImports; // 追加
+
+class User extends Authenticatable
+{
+    use HasApiTokens, HasFactory, Notifiable, HasCsvImports; // 追加
+
+（略）
+-----------
+```
+
+### CSVファイルを準備してインポート
+下記のようなCSVファイルを作成し、ダッシュボードのImportsからファイルをアップロードして読み込ませます
+| id  | title  | body                                           |
+|---|---|-------------------------------------------------------|
+|  1 | サンプルタイトル1 | サンプルブログ記事です。        |
+|  2 | サンプルタイトル2 | この辺はサンプルなので適当に入力します |
+|  3 | サンプルタイトル3 | テストテスト |
+
+
