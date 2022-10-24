@@ -156,6 +156,23 @@ class User extends Authenticatable
 -----------
 ```
 
+また、CSVファイルのインポート時にはLaravelのキューワーカー(Queue Worker)機能を使うので`.env`ファイルの`QUEUE_CONNECTION`を変更します
+
+```vim
+.env
+
+---before---
+QUEUE_CONNECTION=sync
+------------
+↓
+---after---
+QUEUE_CONNECTION=database
+-----------
+```
+> *ワンポイントアドバイス**
+> 
+> QUEUE_CONNECTIONのdatabase設定は開発時の試験用には便利ですが、本番運用時にはRedisを使うのがオススメです
+
 ### CSVファイルを準備してインポート
 下記のようなCSVファイルを作成し、ダッシュボードのImportsからファイルをアップロードして読み込ませます
 | id  | title  | body                                           |
@@ -164,4 +181,14 @@ class User extends Authenticatable
 |  2 | サンプルタイトル2 | この辺はサンプルなので適当に入力します |
 |  3 | サンプルタイトル3 | テストテスト |
 
+CSVファイルの準備が出来たら、Laravelでキューワーカーを起動させます
+
+```bash
+php artisan queue:work
+
+ INFO  Processing jobs from the [default] queue. 
+```
+
+### CSVファイルのアップロードと更新確認
+下記のような感じでCSVファイルをアップロードして動作を確認してみてください
 
