@@ -192,3 +192,7 @@ php artisan queue:work
 ### CSVファイルのアップロードと更新確認
 下記のような感じでCSVファイルをアップロードして動作を確認してみてください
 
+![csvimport](https://user-images.githubusercontent.com/7894265/197445787-12ce50c0-f02a-4bea-b34d-8a2f9a9438f1.gif)
+
+
+## 以上、Filamentの便利なカスタムページの紹介でした👏
